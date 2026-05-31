@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AB 2624 Assembly Vote</title>
+  <style>
+    :root {
+      --bg:#f4f7fb; --card:#ffffff; --text:#172033; --muted:#667085;
+      --aye:#178a2f; --no:#c5221f; --nv:#6b7280; --line:#dde3ee;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--bg); color: var(--text);
+    }
+    header {
+      background: linear-gradient(135deg, #0b2d57, #456b9b);
+      color: white; padding: 34px 22px; text-align: center;
+    }
+    header h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 46px); }
+    header p { margin: 4px 0; opacity: .92; }
+    .summary {
+      display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 18px;
+    }
+    .summary div {
+      background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25);
+      padding: 12px 18px; border-radius: 16px; min-width: 120px;
+    }
+    .summary strong { display:block; font-size: 28px; }
+    .toolbar {
+      display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; padding: 20px;
+      background: white; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5;
+    }
+    input, select {
+      padding: 11px 12px; border: 1px solid var(--line); border-radius: 12px; min-width: 220px; font-size: 15px;
+    }
+    main { padding: 22px; max-width: 1300px; margin: auto; }
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px;
+    }
+    .card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+      box-shadow: 0 8px 22px rgba(16,24,40,.08); transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(16,24,40,.13); }
+    .photoLink {
+      display: block; height: 210px; background: #e8edf5; position: relative; text-decoration: none;
+    }
+    img {
+      width: 100%; height: 210px; object-fit: cover; object-position: center top; display: block;
+    }
+    .fallback {
+      height: 210px; place-items: center; font-size: 44px; font-weight: 800; color: white;
+      background: linear-gradient(135deg, #7284a1, #26364d);
+    }
+    .info { padding: 14px 15px 17px; }
+    h2 { font-size: 18px; margin: 0 0 7px; line-height: 1.2; }
+    p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+    .badge {
+      display: inline-block; color: white; font-weight: 800; letter-spacing: .04em;
+      padding: 7px 12px; border-radius: 999px; font-size: 13px;
+    }
+    .badge.aye { background: var(--aye); }
+    .badge.no { background: var(--no); }
+    .badge.nv { background: var(--nv); }
+    footer { text-align:center; color:var(--muted); padding: 24px; font-size: 13px; }
+    .hidden { display:none !important; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>California Assembly Third Reading Vote</h1>
+    <p><strong>AB 2624 — Bonta</strong></p>
+    <p>Vote shown from the provided Assembly vote board screenshot.</p>
+    <div class="summary">
+      <div><strong>49</strong> AYE</div>
+      <div><strong>19</strong> NO</div>
+      <div><strong>12</strong> Not Voting / No mark</div>
+    </div>
+  </header>
+
+  <section class="toolbar">
+    <input id="search" type="search" placeholder="Search by name..." />
+    <select id="voteFilter">
+      <option value="all">All votes</option>
+      <option value="AYE">AYE</option>
+      <option value="NO">NO</option>
+      <option value="Not Voting">Not Voting / No mark</option>
+    </select>
+    <select id="partyFilter">
+      <option value="all">All parties</option>
+      <option value="Democrat">Democrat</option>
+      <option value="Republican">Republican</option>
+    </select>
+  </section>
+
+  <main>
+    <section class="grid" id="grid">
+      
+      <article class="card" data-name="dawn addis" data-vote="AYE" data-party="Democrat" data-district="30">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/30" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_30.jpg" alt="Official photo of Dawn Addis" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">DA</div>
+        </a>
+        <div class="info">
+          <h2>Dawn Addis</h2>
+          <p>Assembly District 30 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="cecilia m. aguiar-curry" data-vote="AYE" data-party="Democrat" data-district="4">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/4" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_4.jpg" alt="Official photo of Cecilia M. Aguiar-Curry" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">CM</div>
+        </a>
+        <div class="info">
+          <h2>Cecilia M. Aguiar-Curry</h2>
+          <p>Assembly District 4 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="patrick j. ahrens" data-vote="AYE" data-party="Democrat" data-district="26">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/26" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_26.jpg" alt="Official photo of Patrick J. Ahrens" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">PJ</div>
+        </a>
+        <div class="info">
+          <h2>Patrick J. Ahrens</h2>
+          <p>Assembly District 26 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="juan alanis" data-vote="NO" data-party="Republican" data-district="22">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/22" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_22.jpg" alt="Official photo of Juan Alanis" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">JA</div>
+        </a>
+        <div class="info">
+          <h2>Juan Alanis</h2>
+          <p>Assembly District 22 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="david a. alvarez" data-vote="AYE" data-party="Democrat" data-district="80">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/80" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_80.jpg" alt="Official photo of David A. Alvarez" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">DA</div>
+        </a>
+        <div class="info">
+          <h2>David A. Alvarez</h2>
+          <p>Assembly District 80 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="dr. joaquin arambula" data-vote="AYE" data-party="Democrat" data-district="31">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/31" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_31.jpg" alt="Official photo of Dr. Joaquin Arambula" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">DJ</div>
+        </a>
+        <div class="info">
+          <h2>Dr. Joaquin Arambula</h2>
+          <p>Assembly District 31 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="anamarie ávila farías" data-vote="AYE" data-party="Democrat" data-district="15">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/15" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_15.jpg" alt="Official photo of Anamarie Ávila Farías" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">AÁ</div>
+        </a>
+        <div class="info">
+          <h2>Anamarie Ávila Farías</h2>
+          <p>Assembly District 15 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="jasmeet kaur bains" data-vote="Not Voting" data-party="Democrat" data-district="35">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/35" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_35.jpg" alt="Official photo of Jasmeet Kaur Bains" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">JK</div>
+        </a>
+        <div class="info">
+          <h2>Jasmeet Kaur Bains</h2>
+          <p>Assembly District 35 • Democrat</p>
+          <span class="badge nv">Not Voting</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="rebecca bauer-kahan" data-vote="AYE" data-party="Democrat" data-district="16">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/16" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_16.jpg" alt="Official photo of Rebecca Bauer-Kahan" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">RB</div>
+        </a>
+        <div class="info">
+          <h2>Rebecca Bauer-Kahan</h2>
+          <p>Assembly District 16 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="steve bennett" data-vote="AYE" data-party="Democrat" data-district="38">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/38" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_38.jpg" alt="Official photo of Steve Bennett" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">SB</div>
+        </a>
+        <div class="info">
+          <h2>Steve Bennett</h2>
+          <p>Assembly District 38 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="marc berman" data-vote="AYE" data-party="Democrat" data-district="23">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/23" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_23.jpg" alt="Official photo of Marc Berman" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">MB</div>
+        </a>
+        <div class="info">
+          <h2>Marc Berman</h2>
+          <p>Assembly District 23 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="tasha boerner" data-vote="AYE" data-party="Democrat" data-district="77">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/77" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_77.jpg" alt="Official photo of Tasha Boerner" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">TB</div>
+        </a>
+        <div class="info">
+          <h2>Tasha Boerner</h2>
+          <p>Assembly District 77 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="mia bonta" data-vote="AYE" data-party="Democrat" data-district="18">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/18" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_18.jpg" alt="Official photo of Mia Bonta" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">MB</div>
+        </a>
+        <div class="info">
+          <h2>Mia Bonta</h2>
+          <p>Assembly District 18 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="isaac g. bryan" data-vote="AYE" data-party="Democrat" data-district="55">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/55" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_55.jpg" alt="Official photo of Isaac G. Bryan" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">IG</div>
+        </a>
+        <div class="info">
+          <h2>Isaac G. Bryan</h2>
+          <p>Assembly District 55 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="lisa calderon" data-vote="Not Voting" data-party="Democrat" data-district="56">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/56" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_56.jpg" alt="Official photo of Lisa Calderon" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">LC</div>
+        </a>
+        <div class="info">
+          <h2>Lisa Calderon</h2>
+          <p>Assembly District 56 • Democrat</p>
+          <span class="badge nv">Not Voting</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="jessica m. caloza" data-vote="Not Voting" data-party="Democrat" data-district="52">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/52" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_52.jpg" alt="Official photo of Jessica M. Caloza" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">JM</div>
+        </a>
+        <div class="info">
+          <h2>Jessica M. Caloza</h2>
+          <p>Assembly District 52 • Democrat</p>
+          <span class="badge nv">Not Voting</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="juan carrillo" data-vote="AYE" data-party="Democrat" data-district="39">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/39" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_39.jpg" alt="Official photo of Juan Carrillo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">JC</div>
+        </a>
+        <div class="info">
+          <h2>Juan Carrillo</h2>
+          <p>Assembly District 39 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="leticia castillo" data-vote="Not Voting" data-party="Republican" data-district="58">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/58" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_58.jpg" alt="Official photo of Leticia Castillo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">LC</div>
+        </a>
+        <div class="info">
+          <h2>Leticia Castillo</h2>
+          <p>Assembly District 58 • Republican</p>
+          <span class="badge nv">Not Voting</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="phillip chen" data-vote="NO" data-party="Republican" data-district="59">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/59" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_59.jpg" alt="Official photo of Phillip Chen" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">PC</div>
+        </a>
+        <div class="info">
+          <h2>Phillip Chen</h2>
+          <p>Assembly District 59 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="damon connolly" data-vote="AYE" data-party="Democrat" data-district="12">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/12" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_12.jpg" alt="Official photo of Damon Connolly" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">DC</div>
+        </a>
+        <div class="info">
+          <h2>Damon Connolly</h2>
+          <p>Assembly District 12 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="laurie davies" data-vote="NO" data-party="Republican" data-district="74">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/74" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_74.jpg" alt="Official photo of Laurie Davies" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">LD</div>
+        </a>
+        <div class="info">
+          <h2>Laurie Davies</h2>
+          <p>Assembly District 74 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="carl demaio" data-vote="NO" data-party="Republican" data-district="75">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/75" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_75.jpg" alt="Official photo of Carl DeMaio" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">CD</div>
+        </a>
+        <div class="info">
+          <h2>Carl DeMaio</h2>
+          <p>Assembly District 75 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="diane b. dixon" data-vote="NO" data-party="Republican" data-district="72">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/72" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_72.jpg" alt="Official photo of Diane B. Dixon" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">DB</div>
+        </a>
+        <div class="info">
+          <h2>Diane B. Dixon</h2>
+          <p>Assembly District 72 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="sade elhawary" data-vote="AYE" data-party="Democrat" data-district="57">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/57" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_57.jpg" alt="Official photo of Sade Elhawary" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">SE</div>
+        </a>
+        <div class="info">
+          <h2>Sade Elhawary</h2>
+          <p>Assembly District 57 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="stan ellis" data-vote="NO" data-party="Republican" data-district="32">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/32" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_32.jpg" alt="Official photo of Stan Ellis" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">SE</div>
+        </a>
+        <div class="info">
+          <h2>Stan Ellis</h2>
+          <p>Assembly District 32 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="heath flora" data-vote="NO" data-party="Republican" data-district="9">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/9" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_9.jpg" alt="Official photo of Heath Flora" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">HF</div>
+        </a>
+        <div class="info">
+          <h2>Heath Flora</h2>
+          <p>Assembly District 9 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="mike fong" data-vote="AYE" data-party="Democrat" data-district="49">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/49" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_49.jpg" alt="Official photo of Mike Fong" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">MF</div>
+        </a>
+        <div class="info">
+          <h2>Mike Fong</h2>
+          <p>Assembly District 49 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="jesse gabriel" data-vote="Not Voting" data-party="Democrat" data-district="46">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/46" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_46.jpg" alt="Official photo of Jesse Gabriel" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">JG</div>
+        </a>
+        <div class="info">
+          <h2>Jesse Gabriel</h2>
+          <p>Assembly District 46 • Democrat</p>
+          <span class="badge nv">Not Voting</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="james gallagher" data-vote="NO" data-party="Republican" data-district="3">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/3" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_3.jpg" alt="Official photo of James Gallagher" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">JG</div>
+        </a>
+        <div class="info">
+          <h2>James Gallagher</h2>
+          <p>Assembly District 3 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="robert garcia" data-vote="AYE" data-party="Democrat" data-district="50">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/50" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_50.jpg" alt="Official photo of Robert Garcia" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">RG</div>
+        </a>
+        <div class="info">
+          <h2>Robert Garcia</h2>
+          <p>Assembly District 50 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="mike a. gipson" data-vote="AYE" data-party="Democrat" data-district="65">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/65" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_65.jpg" alt="Official photo of Mike A. Gipson" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">MA</div>
+        </a>
+        <div class="info">
+          <h2>Mike A. Gipson</h2>
+          <p>Assembly District 65 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="jeff gonzalez" data-vote="NO" data-party="Republican" data-district="36">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/36" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_36.jpg" alt="Official photo of Jeff Gonzalez" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">JG</div>
+        </a>
+        <div class="info">
+          <h2>Jeff Gonzalez</h2>
+          <p>Assembly District 36 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="mark gonzález" data-vote="AYE" data-party="Democrat" data-district="54">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/54" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_54.jpg" alt="Official photo of Mark González" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">MG</div>
+        </a>
+        <div class="info">
+          <h2>Mark González</h2>
+          <p>Assembly District 54 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="heather hadwick" data-vote="NO" data-party="Republican" data-district="1">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/1" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_1.jpg" alt="Official photo of Heather Hadwick" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">HH</div>
+        </a>
+        <div class="info">
+          <h2>Heather Hadwick</h2>
+          <p>Assembly District 1 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="matt haney" data-vote="AYE" data-party="Democrat" data-district="17">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/17" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_17.jpg" alt="Official photo of Matt Haney" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">MH</div>
+        </a>
+        <div class="info">
+          <h2>Matt Haney</h2>
+          <p>Assembly District 17 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="john harabedian" data-vote="AYE" data-party="Democrat" data-district="41">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/41" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_41.jpg" alt="Official photo of John Harabedian" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">JH</div>
+        </a>
+        <div class="info">
+          <h2>John Harabedian</h2>
+          <p>Assembly District 41 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="gregg hart" data-vote="AYE" data-party="Democrat" data-district="37">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/37" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_37.jpg" alt="Official photo of Gregg Hart" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">GH</div>
+        </a>
+        <div class="info">
+          <h2>Gregg Hart</h2>
+          <p>Assembly District 37 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="josh hoover" data-vote="NO" data-party="Republican" data-district="7">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/7" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_7.jpg" alt="Official photo of Josh Hoover" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">JH</div>
+        </a>
+        <div class="info">
+          <h2>Josh Hoover</h2>
+          <p>Assembly District 7 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="jacqui irwin" data-vote="AYE" data-party="Democrat" data-district="42">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/42" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_42.jpg" alt="Official photo of Jacqui Irwin" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">JI</div>
+        </a>
+        <div class="info">
+          <h2>Jacqui Irwin</h2>
+          <p>Assembly District 42 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="dr. corey a. jackson" data-vote="AYE" data-party="Democrat" data-district="60">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/60" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_60.jpg" alt="Official photo of Dr. Corey A. Jackson" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">DC</div>
+        </a>
+        <div class="info">
+          <h2>Dr. Corey A. Jackson</h2>
+          <p>Assembly District 60 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="natasha johnson" data-vote="NO" data-party="Republican" data-district="63">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/63" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_63.jpg" alt="Official photo of Natasha Johnson" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">NJ</div>
+        </a>
+        <div class="info">
+          <h2>Natasha Johnson</h2>
+          <p>Assembly District 63 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="ash kalra" data-vote="AYE" data-party="Democrat" data-district="25">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/25" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_25.jpg" alt="Official photo of Ash Kalra" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">AK</div>
+        </a>
+        <div class="info">
+          <h2>Ash Kalra</h2>
+          <p>Assembly District 25 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="maggy krell" data-vote="AYE" data-party="Democrat" data-district="6">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/6" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_6.jpg" alt="Official photo of Maggy Krell" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">MK</div>
+        </a>
+        <div class="info">
+          <h2>Maggy Krell</h2>
+          <p>Assembly District 6 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="tom lackey" data-vote="NO" data-party="Republican" data-district="34">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/34" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_34.jpg" alt="Official photo of Tom Lackey" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">TL</div>
+        </a>
+        <div class="info">
+          <h2>Tom Lackey</h2>
+          <p>Assembly District 34 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="alex lee" data-vote="AYE" data-party="Democrat" data-district="24">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/24" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_24.jpg" alt="Official photo of Alex Lee" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">AL</div>
+        </a>
+        <div class="info">
+          <h2>Alex Lee</h2>
+          <p>Assembly District 24 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="josh lowenthal" data-vote="AYE" data-party="Democrat" data-district="69">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/69" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_69.jpg" alt="Official photo of Josh Lowenthal" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">JL</div>
+        </a>
+        <div class="info">
+          <h2>Josh Lowenthal</h2>
+          <p>Assembly District 69 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="alexandra m. macedo" data-vote="NO" data-party="Republican" data-district="33">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/33" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_33.jpg" alt="Official photo of Alexandra M. Macedo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">AM</div>
+        </a>
+        <div class="info">
+          <h2>Alexandra M. Macedo</h2>
+          <p>Assembly District 33 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="tina s. mckinnor" data-vote="Not Voting" data-party="Democrat" data-district="61">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/61" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_61.jpg" alt="Official photo of Tina S. McKinnor" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">TS</div>
+        </a>
+        <div class="info">
+          <h2>Tina S. McKinnor</h2>
+          <p>Assembly District 61 • Democrat</p>
+          <span class="badge nv">Not Voting</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="al muratsuchi" data-vote="Not Voting" data-party="Democrat" data-district="66">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/66" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_66.jpg" alt="Official photo of Al Muratsuchi" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">AM</div>
+        </a>
+        <div class="info">
+          <h2>Al Muratsuchi</h2>
+          <p>Assembly District 66 • Democrat</p>
+          <span class="badge nv">Not Voting</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="stephanie nguyen" data-vote="AYE" data-party="Democrat" data-district="10">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/10" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_10.jpg" alt="Official photo of Stephanie Nguyen" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">SN</div>
+        </a>
+        <div class="info">
+          <h2>Stephanie Nguyen</h2>
+          <p>Assembly District 10 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="liz ortega" data-vote="AYE" data-party="Democrat" data-district="20">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/20" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_20.jpg" alt="Official photo of Liz Ortega" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">LO</div>
+        </a>
+        <div class="info">
+          <h2>Liz Ortega</h2>
+          <p>Assembly District 20 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="blanca pacheco" data-vote="AYE" data-party="Democrat" data-district="64">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/64" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_64.jpg" alt="Official photo of Blanca Pacheco" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">BP</div>
+        </a>
+        <div class="info">
+          <h2>Blanca Pacheco</h2>
+          <p>Assembly District 64 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="diane papan" data-vote="AYE" data-party="Democrat" data-district="21">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/21" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_21.jpg" alt="Official photo of Diane Papan" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">DP</div>
+        </a>
+        <div class="info">
+          <h2>Diane Papan</h2>
+          <p>Assembly District 21 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="dr. darshana r. patel" data-vote="Not Voting" data-party="Democrat" data-district="76">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/76" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_76.jpg" alt="Official photo of Dr. Darshana R. Patel" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">DD</div>
+        </a>
+        <div class="info">
+          <h2>Dr. Darshana R. Patel</h2>
+          <p>Assembly District 76 • Democrat</p>
+          <span class="badge nv">Not Voting</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="joe patterson" data-vote="NO" data-party="Republican" data-district="5">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/5" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_5.jpg" alt="Official photo of Joe Patterson" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">JP</div>
+        </a>
+        <div class="info">
+          <h2>Joe Patterson</h2>
+          <p>Assembly District 5 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="gail pellerin" data-vote="AYE" data-party="Democrat" data-district="28">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/28" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_28.jpg" alt="Official photo of Gail Pellerin" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">GP</div>
+        </a>
+        <div class="info">
+          <h2>Gail Pellerin</h2>
+          <p>Assembly District 28 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="cottie petrie-norris" data-vote="Not Voting" data-party="Democrat" data-district="73">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/73" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_73.jpg" alt="Official photo of Cottie Petrie-Norris" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">CP</div>
+        </a>
+        <div class="info">
+          <h2>Cottie Petrie-Norris</h2>
+          <p>Assembly District 73 • Democrat</p>
+          <span class="badge nv">Not Voting</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="sharon quirk-silva" data-vote="AYE" data-party="Democrat" data-district="67">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/67" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_67.jpg" alt="Official photo of Sharon Quirk-Silva" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">SQ</div>
+        </a>
+        <div class="info">
+          <h2>Sharon Quirk-Silva</h2>
+          <p>Assembly District 67 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="james c. ramos" data-vote="AYE" data-party="Democrat" data-district="45">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/45" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_45.jpg" alt="Official photo of James C. Ramos" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">JC</div>
+        </a>
+        <div class="info">
+          <h2>James C. Ramos</h2>
+          <p>Assembly District 45 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="rhodesia ransom" data-vote="AYE" data-party="Democrat" data-district="13">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/13" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_13.jpg" alt="Official photo of Rhodesia Ransom" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">RR</div>
+        </a>
+        <div class="info">
+          <h2>Rhodesia Ransom</h2>
+          <p>Assembly District 13 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="celeste rodriguez" data-vote="Not Voting" data-party="Democrat" data-district="43">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/43" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_43.jpg" alt="Official photo of Celeste Rodriguez" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">CR</div>
+        </a>
+        <div class="info">
+          <h2>Celeste Rodriguez</h2>
+          <p>Assembly District 43 • Democrat</p>
+          <span class="badge nv">Not Voting</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="michelle rodriguez" data-vote="Not Voting" data-party="Democrat" data-district="53">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/53" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_53.jpg" alt="Official photo of Michelle Rodriguez" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">MR</div>
+        </a>
+        <div class="info">
+          <h2>Michelle Rodriguez</h2>
+          <p>Assembly District 53 • Democrat</p>
+          <span class="badge nv">Not Voting</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="chris rogers" data-vote="AYE" data-party="Democrat" data-district="2">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/2" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_2.jpg" alt="Official photo of Chris Rogers" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">CR</div>
+        </a>
+        <div class="info">
+          <h2>Chris Rogers</h2>
+          <p>Assembly District 2 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="blanca e. rubio" data-vote="Not Voting" data-party="Democrat" data-district="48">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/48" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_48.jpg" alt="Official photo of Blanca E. Rubio" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">BE</div>
+        </a>
+        <div class="info">
+          <h2>Blanca E. Rubio</h2>
+          <p>Assembly District 48 • Democrat</p>
+          <span class="badge nv">Not Voting</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="kate sanchez" data-vote="NO" data-party="Republican" data-district="71">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/71" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_71.jpg" alt="Official photo of Kate Sanchez" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">KS</div>
+        </a>
+        <div class="info">
+          <h2>Kate Sanchez</h2>
+          <p>Assembly District 71 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="pilar schiavo" data-vote="AYE" data-party="Democrat" data-district="40">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/40" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_40.jpg" alt="Official photo of Pilar Schiavo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">PS</div>
+        </a>
+        <div class="info">
+          <h2>Pilar Schiavo</h2>
+          <p>Assembly District 40 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="nick schultz" data-vote="AYE" data-party="Democrat" data-district="44">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/44" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_44.jpg" alt="Official photo of Nick Schultz" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">NS</div>
+        </a>
+        <div class="info">
+          <h2>Nick Schultz</h2>
+          <p>Assembly District 44 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="dr. lashae sharp-collins" data-vote="AYE" data-party="Democrat" data-district="79">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/79" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_79.jpg" alt="Official photo of Dr. LaShae Sharp-Collins" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">DL</div>
+        </a>
+        <div class="info">
+          <h2>Dr. LaShae Sharp-Collins</h2>
+          <p>Assembly District 79 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="josé luis solache jr." data-vote="AYE" data-party="Democrat" data-district="62">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/62" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_62.jpg" alt="Official photo of José Luis Solache Jr." loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">JL</div>
+        </a>
+        <div class="info">
+          <h2>José Luis Solache Jr.</h2>
+          <p>Assembly District 62 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="esmeralda z. soria" data-vote="AYE" data-party="Democrat" data-district="27">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/27" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_27.jpg" alt="Official photo of Esmeralda Z. Soria" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">EZ</div>
+        </a>
+        <div class="info">
+          <h2>Esmeralda Z. Soria</h2>
+          <p>Assembly District 27 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="catherine stefani" data-vote="AYE" data-party="Democrat" data-district="19">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/19" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_19.jpg" alt="Official photo of Catherine Stefani" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">CS</div>
+        </a>
+        <div class="info">
+          <h2>Catherine Stefani</h2>
+          <p>Assembly District 19 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="tri ta" data-vote="NO" data-party="Republican" data-district="70">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/70" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_70.jpg" alt="Official photo of Tri Ta" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">TT</div>
+        </a>
+        <div class="info">
+          <h2>Tri Ta</h2>
+          <p>Assembly District 70 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="david j. tangipa" data-vote="NO" data-party="Republican" data-district="8">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/8" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_8.jpg" alt="Official photo of David J. Tangipa" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">DJ</div>
+        </a>
+        <div class="info">
+          <h2>David J. Tangipa</h2>
+          <p>Assembly District 8 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="avelino valencia" data-vote="AYE" data-party="Democrat" data-district="68">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/68" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_68.jpg" alt="Official photo of Avelino Valencia" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">AV</div>
+        </a>
+        <div class="info">
+          <h2>Avelino Valencia</h2>
+          <p>Assembly District 68 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="greg wallis" data-vote="NO" data-party="Republican" data-district="47">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/47" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_47.jpg" alt="Official photo of Greg Wallis" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">GW</div>
+        </a>
+        <div class="info">
+          <h2>Greg Wallis</h2>
+          <p>Assembly District 47 • Republican</p>
+          <span class="badge no">NO</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="christopher m. ward" data-vote="AYE" data-party="Democrat" data-district="78">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/78" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_78.jpg" alt="Official photo of Christopher M. Ward" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">CM</div>
+        </a>
+        <div class="info">
+          <h2>Christopher M. Ward</h2>
+          <p>Assembly District 78 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="buffy wicks" data-vote="AYE" data-party="Democrat" data-district="14">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/14" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_14.jpg" alt="Official photo of Buffy Wicks" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">BW</div>
+        </a>
+        <div class="info">
+          <h2>Buffy Wicks</h2>
+          <p>Assembly District 14 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="lori d. wilson" data-vote="AYE" data-party="Democrat" data-district="11">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/11" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_11.jpg" alt="Official photo of Lori D. Wilson" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">LD</div>
+        </a>
+        <div class="info">
+          <h2>Lori D. Wilson</h2>
+          <p>Assembly District 11 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="rick chavez zbur" data-vote="AYE" data-party="Democrat" data-district="51">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/51" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_51.jpg" alt="Official photo of Rick Chavez Zbur" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">RC</div>
+        </a>
+        <div class="info">
+          <h2>Rick Chavez Zbur</h2>
+          <p>Assembly District 51 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+      <article class="card" data-name="robert rivas (mr. speaker)" data-vote="AYE" data-party="Democrat" data-district="29">
+        <a class="photoLink" href="https://www.assembly.ca.gov/assemblymembers/29" target="_blank" rel="noopener">
+          <img src="https://webapi.assembly.ca.gov/district-media/assets/members/assembly_member_29.jpg" alt="Official photo of Robert Rivas (Mr. Speaker)" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="fallback" style="display:none;">RR</div>
+        </a>
+        <div class="info">
+          <h2>Robert Rivas (Mr. Speaker)</h2>
+          <p>Assembly District 29 • Democrat</p>
+          <span class="badge aye">AYE</span>
+        </div>
+      </article>
+    
+    </section>
+  </main>
+
+  <footer>
+    Photos are hot-linked from the official California State Assembly web API. Click any photo to open that member’s official Assembly page.
+  </footer>
+
+  <script>
+    const search = document.getElementById('search');
+    const voteFilter = document.getElementById('voteFilter');
+    const partyFilter = document.getElementById('partyFilter');
+    const cards = [...document.querySelectorAll('.card')];
+
+    function applyFilters() {
+      const q = search.value.toLowerCase().trim();
+      const v = voteFilter.value;
+      const p = partyFilter.value;
+
+      cards.forEach(card => {
+        const matchesName = card.dataset.name.includes(q);
+        const matchesVote = v === 'all' || card.dataset.vote === v;
+        const matchesParty = p === 'all' || card.dataset.party === p;
+        card.classList.toggle('hidden', !(matchesName && matchesVote && matchesParty));
+      });
+    }
+
+    search.addEventListener('input', applyFilters);
+    voteFilter.addEventListener('change', applyFilters);
+    partyFilter.addEventListener('change', applyFilters);
+  </script>
+</body>
+</html>
